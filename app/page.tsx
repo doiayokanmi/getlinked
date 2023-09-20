@@ -8,7 +8,7 @@ export default function Home() {
       <Navbar />
 
       <header className="flex flex-col md:flex-row md:h-[85vh] items-center border-b">
-        <div className="basis-1/2 text-white p-4 md:px-24">
+        <div className="basis-1/2 text-white p-4 py-8 md:px-24">
           <h1 className="font-bold text-5xl md:text-7xl md:-me-56">
             getLinked Tech <br /> Hackathon{" "}
             <span className="text-primary">1.0</span>
