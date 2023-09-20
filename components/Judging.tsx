@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Judging = () => {
@@ -12,7 +13,6 @@ const Judging = () => {
             src="/images/8046554 1.png"
             alt=""
             className="self-end"
-            objectFit="contain"
             width={500}
             height={500}
           />
@@ -50,6 +50,8 @@ const Judging = () => {
             whether it addresses a real-world problem in a novel way or
             introduces innovative features.
           </p>
+
+          <Link href={'/register'} className="bg-gradient p-2 px-4 inline-block mt-4 rounded text-white">Read More</Link>
         </div>
       </section>
     </>
