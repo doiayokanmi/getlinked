@@ -1,37 +1,43 @@
+import Hero from "@/components/Hero";
+import Intro from "@/components/Intro";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
+  const introPage = [
+    {
+      heading: 'Introduction to getlinked',
+      sub_heading: 'tech Hackathon 1.0',
+      image: "/images/The Big Idea.png",
+      reversed: false,
+      paragraph: "Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!",
+    },
+    {
+      heading: 'Introduction to getlinked',
+      sub_heading: 'tech Hackathon 1.0',
+      image: "/images/The Big Idea.png",
+      reversed: true,
+      paragraph: "Our tech hackathon is a melting pot of visionaries, and its purpose is as clear as day: to shape the future. Whether you're a coding genius, a design maverick, or a concept wizard, you'll have the chance to transform your ideas into reality. Solving real-world problems, pushing the boundaries of technology, and creating solutions that can change the world, that's what we're all about!",
+    },
+  ]
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
-
-      <header className="flex flex-col md:flex-row md:h-[85vh] items-center border-b">
-        <div className="basis-1/2 text-white p-4 py-8 md:px-24">
-          <h1 className="font-bold text-5xl md:text-7xl md:-me-56">
-            getLinked Tech <br /> Hackathon{" "}
-            <span className="text-primary">1.0</span>
-          </h1>
-
-          <p className="py-8 text-lg">
-            Participate in getlinked tech Hackathon 2023 stand a chance to win a
-            Big prize
-          </p>
-
-          <Link href={'/register'} className="bg-gradient p-2 px-4 rounded text-white">Register</Link>
-
-        </div>
-        <div className="basis-1/2 h-full bg-lefthead bg-contain bg-no-repeat bg-right-bottom flex justify-center relative items-center">
-          <Image
-            src="/images/Image 1.png"
-            alt=""
-            objectFit="contain"
-            width={500}
-            height={500}
-          />
-        </div>
-      </header>
+      <Hero />
+      {
+        introPage.map((intro, index) => {
+          return (
+            <Intro
+              key={index}
+              image={intro.image}
+              heading={intro.heading}
+              sub_heading={intro.sub_heading}
+              paragraph={intro.paragraph}
+              reversed={intro.reversed}
+            />
+          )
+        })
+      }
     </main>
   );
 }
