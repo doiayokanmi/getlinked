@@ -19,8 +19,8 @@ const Intro = ({image, heading, sub_heading, paragraph, reversed}: IntroProps) =
             alt=""
             className="self-end"
             objectFit="contain"
-            width={350}
-            height={350}
+            width={500}
+            height={500}
           />
         </div>
         <div className="basis-1/2 p-8 text-white">
