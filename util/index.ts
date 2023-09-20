@@ -56,3 +56,30 @@ export const judgingPara = [
     description: ' Judges will Ensure that the team adhered to the rules and guidelines of the hackathon, including deadlines, use of specific technologies or APIs, and any other competition-specific requirements.'
   }
 ]
+
+export const accordionItems = [
+  {
+    title: 'Can I work on a project I started before the hackathon?',
+    content: 'Content for Accordion Item 1',
+  },
+  {
+    title: 'What happens if I need help during the hackathon?',
+    content: 'Content for Accordion Item 2',
+  },
+  {
+    title: "What happens if I don't have an idea for a project?",
+    content: 'Content for Accordion Item 1',
+  },
+  {
+    title: 'Can I join a team or do I have to come with one?',
+    content: 'Content for Accordion Item 2',
+  },
+  {
+    title: "What happens after the hackathon ends",
+    content: 'Content for Accordion Item 1',
+  },
+  {
+    title: 'Can I work on a project I started before the hackathon?',
+    content: 'Content for Accordion Item 2',
+  },
+];
