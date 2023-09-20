@@ -23,13 +23,13 @@ const Intro = ({image, heading, sub_heading, paragraph, reversed}: IntroProps) =
             height={500}
           />
         </div>
-        <div className="basis-1/2 p-8 text-white">
-          <h1 className="font-bold  text-2xl mb-8">
+        <div className="basis-1/2 md:p-8 text-white">
+          <h1 className="font-bold text-center md:text-start text-2xl mb-8">
             {heading} <br />{" "}
             <span className="text-primary">{sub_heading}</span>
           </h1>
 
-          <p className="text-lg">
+          <p className="text-lg text-center md:text-start">
             {paragraph}
           </p>
         </div>
