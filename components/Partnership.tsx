@@ -13,9 +13,23 @@ const Partnership = () => {
           companies as its partners and sponsors
         </p>
 
-        <div className="p-4 md:p-16 border rounded border-primary">
+        <div className="p-4 md:p-16 border rounded border-primary relative">
 
-    
+        <Image
+              className="absolute -top-1/2 transform rotate-180 -left-32"
+              src={"/images/Purple-Lens-Flare-PNG.png"}
+              width={400}
+              height={400}
+              alt=""
+            />
+
+<Image
+              className="absolute -bottom-1/2 -right-32"
+              src={"/images/Purple-Lens-Flare-PNG.png"}
+              width={400}
+              height={400}
+              alt=""
+            />
 
           <div className="grid grid-cols-3">
             <div className="border relative border-t-0 flex justify-center items-center border-l-0 border-primary p-2">
@@ -37,7 +51,7 @@ const Partnership = () => {
               />
             </div>
             <div className="border border-t-0 flex justify-center items-center border-r-0 border-primary p-2">
-            <Image
+              <Image
                 src={"/images/Winwise.png"}
                 width={100}
                 height={100}
@@ -45,7 +59,7 @@ const Partnership = () => {
               />
             </div>
             <div className="border border-b-0 flex justify-center items-center border-l-0  border-primary p-2">
-            <Image
+              <Image
                 src={"/images/wisper.png"}
                 width={100}
                 height={100}
@@ -53,7 +67,7 @@ const Partnership = () => {
               />
             </div>
             <div className="border border-b-0 flex justify-center items-center border-primary p-2">
-            <Image
+              <Image
                 src={"/images/Paybox.png"}
                 width={100}
                 height={100}
@@ -61,14 +75,13 @@ const Partnership = () => {
               />
             </div>
             <div className="border relative border-b-0 flex justify-center items-center border-r-0 border-primary p-2">
-            <Image
+              <Image
                 src={"/images/Vizual.png"}
                 width={100}
                 height={100}
                 alt=""
               />
-               <div className="bg-background -top-4 -left-4 rounded-full p-4 absolute"></div>
-
+              <div className="bg-background -top-4 -left-4 rounded-full p-4 absolute"></div>
             </div>
           </div>
         </div>
