@@ -29,7 +29,7 @@ const Intro = ({image, heading, sub_heading, paragraph, reversed}: IntroProps) =
             <span className="text-primary">{sub_heading}</span>
           </h1>
 
-          <p className="text-lg text-center md:text-start">
+          <p className="md:text-lg text-center md:text-start">
             {paragraph}
           </p>
         </div>
