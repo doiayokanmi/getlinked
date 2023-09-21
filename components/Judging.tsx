@@ -11,7 +11,7 @@ const Judging = () => {
       <section
         className={`flex p-4 relative md:px-24 min-h-[85vh] flex-col md:flex-row items-center border-b`}
       >
-        <div className={`basis-1/2 md:mt-24 relative`}>
+        <div className={`basis-1/2 my-4 relative`}>
           <div className="bg-gradient h-[80px] w-[80px] -top-4 left-12 rounded-full absolute"></div>
           <Image
             src="/images/8046554 1.png"

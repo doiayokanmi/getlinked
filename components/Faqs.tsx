@@ -22,7 +22,7 @@ const Faqs = () => {
       <section
         className={`flex p-4 relative md:px-24 flex-col md:flex-row-reverse items-center border-b`}
       >
-        <div className={`basis-1/2 md:mt-24`}>
+        <div className={`basis-1/2 my-4`}>
           <Image
             src="/images/cwok_casual_21 1.png"
             alt=""
