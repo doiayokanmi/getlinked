@@ -38,7 +38,7 @@ const Trophy = () => {
           </div>
           <div className="basis-1/2 flex items-center  pt-12 mt-16">
             <div className="basis-1/3 pe-2">
-            <div className="p-2 pt-8 font-bold text-xl text-center border border-primary rounded">
+            <div className="p-2 pt-8 font-bold text-lg text-center border border-primary rounded">
               <Image
                 className="-mt-24 md:-mt-32"
                 src={"/images/silver_medal.png"}
@@ -55,7 +55,7 @@ const Trophy = () => {
             </div>
 
             <div className="basis-1/3 pe-2">
-            <div className="font-bold relative text-xl md:pt-24 pt-8 text-center bg-primary/70 border border-secondary rounded">
+            <div className="font-bold relative text-lg md:pt-24 pt-8 text-center bg-primary/70 border border-secondary rounded">
               <Image
                 className="-mt-24 md:-mt-32"
                 src={"/images/gold_medal.png"}
@@ -73,7 +73,7 @@ const Trophy = () => {
             </div>
             </div>
 
-            <div className="basis-1/3 p-2 pt-8 font-bold text-xl text-center border border-primary rounded">
+            <div className="basis-1/3 p-2 pt-8 font-bold text-lg text-center border border-primary rounded">
               <Image
                 className="-mt-24 md:-mt-32"
                 src={"/images/bronze_medal.png"}
