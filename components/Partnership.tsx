@@ -20,7 +20,7 @@ const Partnership = () => {
           <div className="grid grid-cols-3">
             <div className="border relative border-t-0 flex justify-center items-center border-l-0 border-primary p-2">
               <Image
-                src={"/images/liberty.png"}
+                src={"/images/Liberty.png"}
                 width={100}
                 height={100}
                 alt=""
@@ -30,7 +30,7 @@ const Partnership = () => {
             </div>
             <div className="border border-t-0 flex justify-center items-center border-primary p-2">
               <Image
-                src={"/images/libertyPay.png"}
+                src={"/images/LibertyPay.png"}
                 width={100}
                 height={100}
                 alt=""
