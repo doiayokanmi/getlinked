@@ -4,6 +4,7 @@ import Intro from "@/components/Intro";
 import Judging from "@/components/Judging";
 import Navbar from "@/components/Navbar";
 import Partnership from "@/components/Partnership";
+import TimelineComp from "@/components/Timeline";
 import Trophy from "@/components/Trophy";
 import { introPage } from "@/util";
 import Image from "next/image";
@@ -28,6 +29,7 @@ export default function Home() {
 
       <Judging />
       <Faqs />
+      <TimelineComp />
       <Trophy />
       <Partnership />
     </main>
