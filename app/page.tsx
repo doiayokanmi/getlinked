@@ -1,4 +1,5 @@
 import Faqs from "@/components/Faqs";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Judging from "@/components/Judging";
@@ -34,6 +35,7 @@ export default function Home() {
       <Trophy />
       <Partnership />
       <Privacy />
+      <Footer />
     </main>
   );
 }

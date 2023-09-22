@@ -58,7 +58,7 @@ const Privacy = () => {
               </Link>
             </div>
 
-            <Image className="absolute -left-24 -bottom-56 transform rotate-180" src={'/images/Purple-Lens-Flare-PNG.png'} width={500} height={500} alt=" " />
+            <Image className="absolute -left-48 -bottom-48 transform rotate-180" src={'/images/Purple-Lens-Flare-PNG.png'} width={500} height={500} alt=" " />
           </div>
         </div>
         <div className="basis-1/2 flex justify-center relative p-8">
