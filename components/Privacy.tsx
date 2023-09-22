@@ -45,9 +45,9 @@ const Privacy = () => {
             </ul>
         </div>
         </div>
-        <div className="basis-1/2 flex justify-center  relative bg-no-repeat bg-contain bg-top p-8">
-            <Image className='self-end mt-24 relative z-50' src={'/images/privacy2.png' } width={350} height={350} alt="" />
-            <Image className='absolute right-0 top-24' src={'/images/privacy.png' } width={400} height={400} alt="" />
+        <div className="basis-1/2 flex justify-center relative p-8">
+            <Image className='self-end mt-12 relative z-50' src={'/images/privacy2.png' } width={350} height={350} alt="" />
+            <Image className='absolute right-0 top-0' src={'/images/privacy.png' } width={400} height={400} alt="" />
 
         </div>
     </section>
