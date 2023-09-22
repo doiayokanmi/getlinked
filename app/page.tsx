@@ -4,6 +4,7 @@ import Intro from "@/components/Intro";
 import Judging from "@/components/Judging";
 import Navbar from "@/components/Navbar";
 import Partnership from "@/components/Partnership";
+import Privacy from "@/components/Privacy";
 import TimelineComp from "@/components/Timeline";
 import Trophy from "@/components/Trophy";
 import { introPage } from "@/util";
@@ -32,6 +33,7 @@ export default function Home() {
       <TimelineComp />
       <Trophy />
       <Partnership />
+      <Privacy />
     </main>
   );
 }

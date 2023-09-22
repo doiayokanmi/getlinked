@@ -11,6 +11,7 @@ const config: Config = {
       backgroundImage: {
         'gradient': 'linear-gradient(90deg, #D434FE, #903AFF)',
         'lefthead': "url('/images/man.png')",
+        'privacy': "url('/images/privacy.png')",
       },
       colors: {
         background: 'var(--background)',

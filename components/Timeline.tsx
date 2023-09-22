@@ -11,7 +11,13 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 export default function TimelineComp() {
   return (
-    <section className="py-12 border-b md:px-24 px-4">
+    <section className="py-12 border-b md:px-24 px-4 text-white">
+        <h1 className="font-semibold md:text-4xl text-xl text-center">
+          Timeline
+        </h1>
+        <p className="md:w-1/2 text-center mx-auto py-4">
+        Here is the breakdown of the time we anticipate using for the upcoming event.
+        </p>
       <Timeline className="text-white">
         <TimelineItem>
           <TimelineOppositeContent className="text-white"></TimelineOppositeContent>
@@ -20,7 +26,8 @@ export default function TimelineComp() {
           </TimelineSeparator>
           <TimelineContent className="text-white"></TimelineContent>
         </TimelineItem>
-        <TimelineItem className="center">
+
+        <TimelineItem className="">
           <TimelineContent className="text-white text-end">
             <span className="text-primary">Hackathon Announcement</span>
             <p className="text">
@@ -33,32 +40,102 @@ export default function TimelineComp() {
             <TimelineDot className="bg-primary" />
             <TimelineConnector className="bg-primary" />
           </TimelineSeparator>
-          <TimelineOppositeContent className="text-white">
-            09:30 am
+
+          <TimelineOppositeContent className="text-primary text-start">
+            November 18, 2023
           </TimelineOppositeContent>
         </TimelineItem>
+
         <TimelineItem>
-          <TimelineOppositeContent>10:00 am</TimelineOppositeContent>
+          <TimelineOppositeContent className="text-primary">
+            November 18, 2023
+          </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot className="bg-primary" />
             <TimelineConnector className="bg-primary" />
           </TimelineSeparator>
-          <TimelineContent className="text-white">Code</TimelineContent>
+          <TimelineContent className="text-white">
+            <span className="text-primary">Teams Registration begins</span>
+            <p className="text">
+              Interested teams can now show their interest in the getlinked tech
+              hackathon 1.0 2023 by proceeding to register
+            </p>
+          </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
-          <TimelineOppositeContent>12:00 am</TimelineOppositeContent>
+
+        <TimelineItem className="">
+          <TimelineContent className="text-white text-end">
+            <span className="text-primary">Teams Registration ends</span>
+            <p className="text">
+              Interested Participants are no longer Allowed to register
+            </p>
+          </TimelineContent>
+
           <TimelineSeparator>
             <TimelineDot className="bg-primary" />
             <TimelineConnector className="bg-primary" />
           </TimelineSeparator>
-          <TimelineContent className="text-white">Sleep</TimelineContent>
+
+          <TimelineOppositeContent className="text-primary text-start">
+            November 18, 2023
+          </TimelineOppositeContent>
         </TimelineItem>
+
         <TimelineItem>
-          <TimelineOppositeContent>9:00 am</TimelineOppositeContent>
+          <TimelineOppositeContent className="text-primary">
+            November 18, 2023
+          </TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot className="bg-primary" />
+            <TimelineConnector className="bg-primary" />
           </TimelineSeparator>
-          <TimelineContent className="text-white">Repeat</TimelineContent>
+          <TimelineContent className="text-white">
+            <span className="text-primary">
+              Announcement of the accepted teams and ideas
+            </span>
+            <p className="text">
+              All teams whom idea has been accepted into getlinked tech
+              hackathon 1.0 2023 are formally announced
+            </p>
+          </TimelineContent>
+        </TimelineItem>
+
+        <TimelineItem className="">
+          <TimelineContent className="text-white text-end">
+            <span className="text-primary">
+              Getlinked Hackathon 1.0 Offically Begins
+            </span>
+            <p className="text">
+              Accepted teams can now proceed to build their ground breaking
+              skill driven solutions
+            </p>
+          </TimelineContent>
+
+          <TimelineSeparator>
+            <TimelineDot className="bg-primary" />
+            <TimelineConnector className="bg-primary" />
+          </TimelineSeparator>
+
+          <TimelineOppositeContent className="text-primary text-start">
+            November 18, 2023
+          </TimelineOppositeContent>
+        </TimelineItem>
+
+        <TimelineItem>
+          <TimelineOppositeContent className="text-primary">
+            November 18, 2023
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineDot className="bg-primary" />
+            <TimelineConnector className="bg-primary" />
+          </TimelineSeparator>
+          <TimelineContent className="text-white">
+            <span className="text-primary">Demo Day</span>
+            <p className="text">
+              Teams get the opportunity to pitch their projects to judges. The
+              winner of the hackathon will also be announced on this day
+            </p>
+          </TimelineContent>
         </TimelineItem>
       </Timeline>
     </section>

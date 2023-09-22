@@ -4,7 +4,7 @@ import React from "react";
 const Partnership = () => {
   return (
     <>
-      <section className="px-4 py-12 md:px-24 text-white">
+      <section className="px-4 py-12 md:px-24 text-white border-b">
         <h1 className="font-semibold md:text-4xl text-xl text-center">
           Partners and Sponsors
         </h1>

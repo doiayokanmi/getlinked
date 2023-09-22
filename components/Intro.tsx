@@ -12,7 +12,7 @@ interface IntroProps {
 const Intro = ({image, heading, sub_heading, paragraph, reversed}: IntroProps) => {
   return (
     <>
-    <section className={`flex p-4 md:px-24 min-h-[85vh] flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center border-b`}>
+    <section className={`flex px-4 py-8 md:px-24 min-h-[85vh] flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center border-b`}>
         <div className={`basis-1/2 p-8 flex ${!reversed ? 'justify-end' : ''}`}>
           <Image
             src={image}
