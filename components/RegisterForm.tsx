@@ -3,7 +3,6 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import * as Yup from "yup";
-import axios from "axios";
 
 export const RegisterForm = () => {
   const [category, setCategory] = useState([]);
@@ -11,29 +10,34 @@ export const RegisterForm = () => {
   const date = new Date();
 
   useEffect(() => {
-    axios
-      .get(`${baseUrl}/hackathon/categories-list`)
-      .then((result) => {
-        setCategory(result.data);
-        console.log(result.data);
+    fetch(`${baseUrl}/hackathon/categories-list`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.status}`);
+        }
+        return response.json();
       })
-      .catch((err) => {
-        console.log(err);
+      .then((data) => {
+        setCategory(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
       });
   }, []);
 
   return (
     <Formik
       initialValues={{
-        "email": "",
-        "team_name": "",
-        "phone_number": "",
-        "project_topic": "",
-        "group_size": 0,
-        "privacy_poclicy_accepted": true,
-        "date_created": date.getTime(),
-        "last_updated": date.getTime(),
-        "category": 0,
+        email: "",
+        team_name: "",
+        phone_number: "",
+        project_topic: "",
+        group_size: 0,
+        privacy_poclicy_accepted: true,
+        date_created: date.getTime(),
+        last_updated: date.getTime(),
+        category: 0,
       }}
       validationSchema={Yup.object({
         team_name: Yup.string()
@@ -45,7 +49,9 @@ export const RegisterForm = () => {
         phone_number: Yup.string()
           .max(20, "Must be 20 characters or less")
           .required("Fill this space"),
-        email: Yup.string().email("Invalid email address").required("Fill this space"),
+        email: Yup.string()
+          .email("Invalid email address")
+          .required("Fill this space"),
         privacy_poclicy_accepted: Yup.boolean()
           .required("Accept privacy policy")
           .oneOf([true], "You must accept the terms and conditions."),
@@ -57,13 +63,27 @@ export const RegisterForm = () => {
           .required("Select one of this"),
       })}
       onSubmit={(values, { setSubmitting }) => {
-        axios.post(`${baseUrl}/hackathon/registration`, values)
-        .then(
-          (result) => {
-            console.log(result.data);
+        fetch(`${baseUrl}/hackathon/registration`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(
+                `Network response was not ok: ${response.status}`
+              );
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
             setSubmitting(false);
-          }).catch((err) => {
-            console.log(err);
+          })
+          .catch((error) => {
+            console.error(error);
             setSubmitting(false);
           });
       }}
@@ -77,7 +97,10 @@ export const RegisterForm = () => {
             type="text"
             className="bg-background border border-white py-2 px-4 w-full"
           />
-          <ErrorMessage name="team_name" className="text-red-500 text-xs italic" />
+          <ErrorMessage
+            name="team_name"
+            className="text-red-500 text-xs italic"
+          />
         </div>
 
         <div className="basis-1/2 my-2 relative text-white">
@@ -88,8 +111,10 @@ export const RegisterForm = () => {
             type="text"
             className="bg-background border border-white py-2 px-4 w-full"
           />
-          <ErrorMessage name="phone_number" className="text-red-500 text-xs italic" />
-
+          <ErrorMessage
+            name="phone_number"
+            className="text-red-500 text-xs italic"
+          />
         </div>
         <div className="basis-1/2 my-2 md:pe-2 relative text-white">
           <label htmlFor="email">Email Address</label>
@@ -100,7 +125,6 @@ export const RegisterForm = () => {
             className="bg-background border border-white py-2 px-4 w-full"
           />
           <ErrorMessage name="email" className="text-red-500 text-xs italic" />
-
         </div>
 
         <div className="basis-1/2 my-2 relative text-white">
@@ -111,13 +135,16 @@ export const RegisterForm = () => {
             type="text"
             className="bg-background border border-white py-2 px-4 w-full"
           />
-          <ErrorMessage name="project_topic" className="text-red-500 text-xs italic" />
-
+          <ErrorMessage
+            name="project_topic"
+            className="text-red-500 text-xs italic"
+          />
         </div>
 
         <div className="basis-1/2 my-2 md:pe-2 relative text-white">
           <label htmlFor="category">Category</label>
-          <select
+          <Field
+            as="select"
             id="category"
             name="category"
             className="bg-background border border-white py-2 px-4 w-full"
@@ -128,13 +155,16 @@ export const RegisterForm = () => {
                 {cat.name}
               </option>
             ))}
-          </select>
-          <ErrorMessage name="category" className="text-red-500 text-xs italic" />
-
+          </Field>
+          <ErrorMessage
+            name="category"
+            className="text-red-500 text-xs italic"
+          />
         </div>
         <div className="basis-1/2 my-2 relative text-white">
           <label htmlFor="email">Group Size</label>
-          <select
+          <Field
+            as="select"
             id="group_size"
             name="group_size"
             className="bg-background border border-white py-2 px-4 w-full"
@@ -143,20 +173,30 @@ export const RegisterForm = () => {
             <option value={1}>1-5</option>
             <option value={2}>6-10</option>
             <option value={3}>Above 10</option>
-          </select>
-          <ErrorMessage name="group_size" className="text-red-500 text-xs italic" />
-
+          </Field>
+          <ErrorMessage
+            name="group_size"
+            className="text-red-500 text-xs italic"
+          />
         </div>
         <p className="text-secondary">
           Please review your registration details before submitting
         </p>
-        <FormControlLabel className="text-xs"
+        <FormControlLabel
+          className="text-xs"
           control={
-            <Checkbox defaultChecked color="primary" name="privacy_poclicy_accepted" />
+            <Checkbox
+              defaultChecked
+              color="primary"
+              name="privacy_poclicy_accepted"
+            />
           }
           label="I agreed with the event terms and conditions and privacy policy"
         />
-      <ErrorMessage name="privacy_poclicy_accepted" className="text-red-500 text-xs italic" />
+        <ErrorMessage
+          name="privacy_poclicy_accepted"
+          className="text-red-500 text-xs italic"
+        />
         <button type="submit" className="bg-gradient mt-4 w-full py-2 rounded">
           Submit
         </button>
