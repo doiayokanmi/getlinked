@@ -5,7 +5,7 @@ import Checkbox from "@mui/material/Checkbox";
 import * as Yup from "yup";
 
 export const RegisterForm = () => {
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState<(string | number)[]>([]);
   const baseUrl = "https://backend.getlinked.ai";
   const date = new Date();
 
