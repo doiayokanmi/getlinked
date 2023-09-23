@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import * as Yup from "yup";
+import { yupSchema } from "@/util";
 
-export const RegisterForm = () => {
+export const RegisterForm = ({open, setOpen}: {open: boolean, setOpen: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const [category, setCategory] = useState<(string | number)[]>([]);
   const baseUrl = "https://backend.getlinked.ai";
   const date = new Date();
@@ -33,35 +33,13 @@ export const RegisterForm = () => {
         team_name: "",
         phone_number: "",
         project_topic: "",
-        group_size: 0,
-        privacy_poclicy_accepted: true,
-        date_created: date.getTime(),
-        last_updated: date.getTime(),
-        category: 0,
+        group_size: "",
+        privacy_poclicy_accepted: false, 
+        date_created: date.toISOString(),
+        last_updated: date.toISOString(),
+        category: "",
       }}
-      validationSchema={Yup.object({
-        team_name: Yup.string()
-          .min(3, "Must be 3 characters or more")
-          .required("Fill this space"),
-        project_topic: Yup.string()
-          .min(3, "Must be 3 characters or more")
-          .required("Fill this space"),
-        phone_number: Yup.string()
-          .max(20, "Must be 20 characters or less")
-          .required("Fill this space"),
-        email: Yup.string()
-          .email("Invalid email address")
-          .required("Fill this space"),
-        privacy_poclicy_accepted: Yup.boolean()
-          .required("Accept privacy policy")
-          .oneOf([true], "You must accept the terms and conditions."),
-        category: Yup.string()
-          .oneOf(["Web", "UI/UX", "Mobile"], "Select category")
-          .required("Select one of this"),
-        group_size: Yup.string()
-          .oneOf(["1-5", "5-9", "Above 10"], "Select group size")
-          .required("Select one of this"),
-      })}
+      validationSchema= {yupSchema}
       onSubmit={(values, { setSubmitting }) => {
         fetch(`${baseUrl}/hackathon/registration`, {
           method: "POST",
@@ -79,7 +57,7 @@ export const RegisterForm = () => {
             return response.json();
           })
           .then((data) => {
-            console.log(data);
+            setOpen(true)
             setSubmitting(false);
           })
           .catch((error) => {
@@ -89,6 +67,7 @@ export const RegisterForm = () => {
       }}
     >
       <Form className="flex flex-wrap flex-col md:flex-row justify-between">
+      
         <div className="basis-1/2 my-2 md:pe-2 relative text-white">
           <label htmlFor="team_name">Team Name</label>
           <Field
@@ -186,8 +165,6 @@ export const RegisterForm = () => {
           className="text-xs"
           control={
             <Checkbox
-              defaultChecked
-              color="primary"
               name="privacy_poclicy_accepted"
             />
           }
@@ -198,7 +175,7 @@ export const RegisterForm = () => {
           className="text-red-500 text-xs italic"
         />
         <button type="submit" className="bg-gradient mt-4 w-full py-2 rounded">
-          Submit
+          Register
         </button>
       </Form>
     </Formik>

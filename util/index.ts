@@ -83,3 +83,23 @@ export const accordionItems = [
     content: 'Content for Accordion Item 2',
   },
 ];
+import * as Yup from "yup";
+
+export const yupSchema = Yup.object({
+  team_name: Yup.string()
+    .min(3, "Must be 3 characters or more")
+    .required("Fill this space"),
+  project_topic: Yup.string()
+    .min(3, "Must be 3 characters or more")
+    .required("Fill this space"),
+  phone_number: Yup.string()
+    .max(20, "Must be 20 characters or less")
+    .required("Fill this space"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Fill this space"),
+  privacy_poclicy_accepted: Yup.boolean()
+    .required("Accept privacy policy")
+    .oneOf([true], "You must accept the terms and conditions."),
+
+})
