@@ -1,41 +1,23 @@
-import Faqs from "@/components/Faqs";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import Intro from "@/components/Intro";
-import Judging from "@/components/Judging";
+'use client'
+
 import Navbar from "@/components/Navbar";
-import Partnership from "@/components/Partnership";
-import Privacy from "@/components/Privacy";
-import TimelineComp from "@/components/Timeline";
-import Trophy from "@/components/Trophy";
-import { introPage } from "@/util";
-import Image from "next/image";
+import Contact from "@/components/Pages/Contact";
+import LandingPage from "@/components/Pages/LandingPage";
+import Register from "@/components/Pages/Register";
+import { useState } from "react";
 
 export default function Home() {
+  const [curPage, setCurPage] = useState(1);
+  const pages = {
+    1: <LandingPage />,
+    2: <Contact />,
+    3: <Register />,
+  };
   return (
     <main className="min-h-screen bg-background overflow-hidden">
-      <Navbar />
-      <Hero />
-      {introPage.map((intro, index) => {
-        return (
-          <Intro
-            key={index}
-            image={intro.image}
-            heading={intro.heading}
-            sub_heading={intro.sub_heading}
-            paragraph={intro.paragraph}
-            reversed={intro.reversed}
-          />
-        );
-      })}
-
-      <Judging />
-      <Faqs />
-      <TimelineComp />
-      <Trophy />
-      <Partnership />
-      <Privacy />
-      <Footer />
+      <Navbar curPage={curPage} setCurPage={setCurPage} />
+      {pages[curPage as keyof typeof pages]}
+      
     </main>
   );
 }

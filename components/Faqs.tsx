@@ -20,7 +20,8 @@ const Faqs = () => {
   return (
     <>
       <section
-        className={`flex p-4 relative md:px-24 flex-col md:flex-row-reverse items-center border-b`}
+        className={`flex px-4 py-12 relative md:px-24 flex-col md:flex-row-reverse items-center border-b`}
+        id="faqs"
       >
         <div className={`basis-1/2 my-4`}>
           <Image

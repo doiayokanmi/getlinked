@@ -11,7 +11,7 @@ import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 
 export default function TimelineComp() {
   return (
-    <section className="py-12 border-b md:px-24 px-4 text-white">
+    <section className="py-12 border-b md:px-24 px-4 text-white" id="timeline">
         <h1 className="font-semibold md:text-4xl text-xl text-center">
           Timeline
         </h1>

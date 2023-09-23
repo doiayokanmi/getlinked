@@ -1,19 +1,19 @@
 export const links = [
   {
     name: "Timeline",
-    href: "/",
+    href: "#timeline",
   },
   {
     name: "Overview",
-    href: "/overview",
+    href: "#overview",
   },
   {
     name: "FAQs",
-    href: "/faqs",
+    href: "#faqs",
   },
   {
     name: "Contact",
-    href: "/contact",
+    href: "#",
   },
 ];
 

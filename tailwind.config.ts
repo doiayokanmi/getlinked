@@ -17,6 +17,7 @@ const config: Config = {
         background: 'var(--background)',
         primary: 'var(--primary)',
         secondary: 'var(--secondary)',
+        register: 'var(--register)',
       }
     },
   },
