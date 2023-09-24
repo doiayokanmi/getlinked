@@ -9,22 +9,49 @@ export const RegisterForm = ({open, setOpen}: {open: boolean, setOpen: React.Dis
   const baseUrl = "https://backend.getlinked.ai";
   const date = new Date();
 
+  const handleReg = async (values: any) => {
+    try {
+      const response = await fetch(`${baseUrl}/hackathon/registration`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      setOpen(true);
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  
+
   useEffect(() => {
-    fetch(`${baseUrl}/hackathon/categories-list`)
-      .then((response) => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`${baseUrl}/hackathon/categories-list`);
+  
         if (!response.ok) {
           throw new Error(`Network response was not ok: ${response.status}`);
         }
-        return response.json();
-      })
-      .then((data) => {
+  
+        const data = await response.json();
         setCategory(data);
         console.log(data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error);
-      });
+      }
+    };
+  
+    fetchCategories();
   }, []);
+  
 
   return (
     <Formik
@@ -34,36 +61,13 @@ export const RegisterForm = ({open, setOpen}: {open: boolean, setOpen: React.Dis
         phone_number: "",
         project_topic: "",
         group_size: "",
-        privacy_poclicy_accepted: false, 
-        date_created: date.toISOString(),
-        last_updated: date.toISOString(),
+        privacy_policy_accepted: false, 
         category: "",
       }}
       validationSchema= {yupSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        fetch(`${baseUrl}/hackathon/registration`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        })
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(
-                `Network response was not ok: ${response.status}`
-              );
-            }
-            return response.json();
-          })
-          .then((data) => {
-            setOpen(true)
-            setSubmitting(false);
-          })
-          .catch((error) => {
-            console.error(error);
-            setSubmitting(false);
-          });
+      onSubmit={(values) => {
+        handleReg(values);
+        setOpen(true)
       }}
     >
       <Form className="flex flex-wrap flex-col md:flex-row justify-between">
@@ -165,13 +169,13 @@ export const RegisterForm = ({open, setOpen}: {open: boolean, setOpen: React.Dis
           className="text-xs"
           control={
             <Checkbox
-              name="privacy_poclicy_accepted"
+              name="privacy_policy_accepted"
             />
           }
           label="I agreed with the event terms and conditions and privacy policy"
         />
         <ErrorMessage
-          name="privacy_poclicy_accepted"
+          name="privacy_policy_accepted"
           className="text-red-500 text-xs italic"
         />
         <button type="submit" className="bg-gradient mt-4 w-full py-2 rounded">

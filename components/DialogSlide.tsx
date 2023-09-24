@@ -51,6 +51,10 @@ export default function DialogSlide({open, setOpen}: {open: boolean, setOpen: Re
             <p>
             Yes, it was easy and you did it! check your mail box for next step
             </p>
+
+            <button className="bg-gradient w-full py-2 px-4 mt-4" onClick={handleClose}>
+              Back
+            </button>
           </DialogContentText>
         </DialogContent>
       </Dialog>

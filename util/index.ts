@@ -98,8 +98,4 @@ export const yupSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email address")
     .required("Fill this space"),
-  privacy_poclicy_accepted: Yup.boolean()
-    .required("Accept privacy policy")
-    .oneOf([true], "You must accept the terms and conditions."),
-
 })
